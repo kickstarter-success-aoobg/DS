@@ -42,7 +42,7 @@ def predict():
     if request.method == "POST":
         req = request.get_json()
         print(req)
-        return { "rate" : 85.66 }, 200
+        return { "rate" : "85.66" }, 200
         # return jsonify(my_post_list)
     else:
         return jsonify(my_get_list)
