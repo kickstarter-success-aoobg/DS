@@ -8,10 +8,10 @@ DATABASE_URL = "sqlite:///test_environment.db"
 def create_app():
     app = Flask(__name__)
 
-    cors = CORS(app)
+    CORS(app)
 
     app.register_blueprint(home_routes)
-    app.config['CORS_HEADERS'] = 'Content-Type'
+    # app.config['CORS_HEADERS'] = 'Content-Type'
 
     return app
 
