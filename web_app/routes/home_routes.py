@@ -14,9 +14,19 @@ my_get_list = {1: 'derp', 2: 'derpy', 3: 'derpen'}
 my_post_list = {4: 'derp_post', 5: 'derpy_post', 6: 'derpen_post'}
 
 
+# @home_routes.route("/predict", methods=["GET", "POST"])
+# def predict():
+#     if request.method == "POST":
+#         return jsonify(my_post_list)
+#     else:
+#         return jsonify(my_get_list)
+
 @home_routes.route("/predict", methods=["GET", "POST"])
 def predict():
     if request.method == "POST":
-        return jsonify(my_post_list)
+        req = request.get_json()
+        print(req)
+        return "Thanks!", 200
+        # return jsonify(my_post_list)
     else:
         return jsonify(my_get_list)
