@@ -1,6 +1,6 @@
 from flask import Blueprint, render_template, jsonify, request
 home_routes = Blueprint("home_routes", __name__)
-from flask.ext.cors import CORS
+# from flask.ext.cors import CORS
 
 # try:
 #     from flask.ext.cors import CORS  # The typical way to import flask-cors
