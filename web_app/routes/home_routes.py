@@ -2,13 +2,13 @@ from flask import Blueprint, render_template, jsonify, request
 home_routes = Blueprint("home_routes", __name__)
 from flask.ext.cors import CORS
 
-try:
-    from flask.ext.cors import CORS  # The typical way to import flask-cors
-except ImportError:
-    # Path hack allows examples to be run without installation.
-    import os
-    parentdir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-    os.sys.path.insert(0, parentdir)
+# try:
+#     from flask.ext.cors import CORS  # The typical way to import flask-cors
+# except ImportError:
+#     # Path hack allows examples to be run without installation.
+#     import os
+#     parentdir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+#     os.sys.path.insert(0, parentdir)
     
 @home_routes.route("/")
 def index():
