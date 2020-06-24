@@ -14,7 +14,7 @@
 - **Category**: Category to choose from are:
 
         1. Art
-        2.Crafts
+        2. Crafts
         3. Comics
         4. Dance
         5. Design
