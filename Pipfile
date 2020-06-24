@@ -10,8 +10,12 @@ flask-migrate = "*"
 gunicorn = "*"
 psycopg2-binary = "*"
 flask-cors = "*"
+pandas = "*"
+scikit-learn = "*"
+category-encoders = "*"
 
 [dev-packages]
+
 
 [requires]
 python_version = "3.7"
