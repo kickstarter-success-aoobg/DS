@@ -1,14 +1,10 @@
+# import libraries
 from flask import Blueprint, render_template, jsonify, request
 home_routes = Blueprint("home_routes", __name__)
 import pandas as pd
 import joblib
 
-# import pickle
-
-# from web_app.pickled_models import baseline_pt1_nlp, baseline_pt2_rfc, categorical_encoder
-# nlp = pickle.load(open("baseline_pt1_nlp.pkl", "rb"))
-# rfc = pickle.load(open("baseline_pt2_rfc.pkl", "rb"))
-# encode = pickle.load(open("categorical_encoder.pkl", "rb"))
+# loading pickle files
 nlp = joblib.load("baseline_pt1_nlp.pkl")
 rfc = joblib.load("baseline_pt2_rfc.pkl")
 encode = joblib.load("categorical_encoder.pkl")
@@ -20,41 +16,13 @@ def index():
 @home_routes.route("/about")
 def about():
     return """This is where we build a model for prediction of Kickstarter project, 
-              whether they will succeed or fail."""
-
-my_get_list = {1: 'derp', 2: 'derpy', 3: 'derpen'}
-# my_post_list = {4: 'derp_post', 5: 'derpy_post', 6: 'derpen_post'}
-
-
-# @home_routes.route("/predict", methods=["GET", "POST"])
-# def predict():
-#     if request.method == "POST":
-#         return jsonify(my_post_list)
-#     else:
-#         return jsonify(my_get_list)
-    # # samplesub = {
-    #     "Name": "Nick",
-    #     "Description": "derpen",
-    #     "Length of Campaign": 20,
-    #     "Monetary goal": 10000,
-    #     "Category": "derp"
-    #     }
-
-
-# @home_routes.route("/predict", methods=["GET", "POST"])
-# def predict():
-
-#     if request.method == "POST":
-#         req = request.get_json()
-#         print(req)
-#         return { "rate" : "175.50" }, 200
-
-#     else:
-#         return jsonify(my_get_list)
+              whether they will succeed or fail in percentage."""
 
 @home_routes.route("/predict", methods=["GET", "POST"])
 def predict():
-    
+    '''
+    Generate prediction in percentage for user_input
+    '''
     if request.method == "POST":
 
         req = request.get_json()
