@@ -1,27 +1,16 @@
-# import libraries
+
 from flask import Blueprint, render_template, jsonify, request
 import pandas as pd
 import joblib
 
+predict_routes = Blueprint("predict_routes", __name__)
 
-home_routes = Blueprint("home_routes", __name__)
-
-# loading pickle files
-nlp = joblib.load("finalmodel_pt1_nlp.pkl")
-rfc = joblib.load("finalmodel_pt2_rfc.pkl")
+nlp = joblib.load("baseline_pt1_nlp.pkl")
+rfc = joblib.load("baseline_pt2_rfc.pkl")
 encode = joblib.load("categorical_encoder.pkl")
 
-    
-@home_routes.route("/")
-def index():
-    return "This is a test environment."
 
-@home_routes.route("/about")
-def about():
-    return """This is where we build a model for prediction of Kickstarter project, 
-              whether they will succeed or fail in percentage."""
-
-@home_routes.route("/predict", methods=["GET", "POST"])
+@predict_routes.route("/predictor", methods=["GET", "POST"])
 def predict():
     '''
     Generate prediction in percentage for user_input
